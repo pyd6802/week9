@@ -37,7 +37,7 @@ public class StepDefinitions {
 	
 /** Division of 2 numbers */
 	 @Given("^I have the same two numbers: (.*) and (.*)$")
-    public void i_have_two_numbers(String a, String b) throws Throwable {
+    public void i_have_same_two_numbers(String a, String b) throws Throwable {
         this.a = a;
         this.b = b;
     }
@@ -49,7 +49,7 @@ public class StepDefinitions {
     }
 
     @Then("^I receive a division (.*) as a result$")
-    public void i_receive_as_a_result(String expectedResult) throws Throwable {
+    public void i_receive_division_as_a_result(String expectedResult) throws Throwable {
         assertEquals(expectedResult, result);
     }
 }
