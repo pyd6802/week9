@@ -17,6 +17,7 @@ public class StepDefinitions {
     private String b;
     private String result;
 
+/** Addition of 2 numbers */
     @Given("^I have two numbers: (.*) and (.*)$")
     public void i_have_two_numbers(String a, String b) throws Throwable {
         this.a = a;
@@ -26,6 +27,24 @@ public class StepDefinitions {
     @When("^the calculator sums them$")
     public void the_calculator_sums_them() throws Throwable {
         String url = String.format("%s/sum?a=%s&b=%s", server, a, b);
+        result = restTemplate.getForObject(url, String.class);
+    }
+
+    @Then("^I receive (.*) as a result$")
+    public void i_receive_as_a_result(String expectedResult) throws Throwable {
+        assertEquals(expectedResult, result);
+    }
+	
+/** Division of 2 numbers */
+	 @Given("^I have two numbers: (.*) and (.*)$")
+    public void i_have_two_numbers(String a, String b) throws Throwable {
+        this.a = a;
+        this.b = b;
+    }
+
+    @When("^the calculator divides them$")
+    public void the_calculator_divides_them() throws Throwable {
+        String url = String.format("%s/div?a=%s&b=%s", server, a, b);
         result = restTemplate.getForObject(url, String.class);
     }
 
