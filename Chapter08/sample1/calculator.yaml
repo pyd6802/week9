@@ -20,6 +20,11 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
+        env:
+        - name: CALC_POP_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
 
 ---
 
