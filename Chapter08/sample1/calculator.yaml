@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: calculator
-        image: leszko/calculator
+        image: dlambrig/week8:1.1
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -33,6 +33,7 @@ spec:
              path: /sum?a=1&b=2
              port: 8080
 ---
+
 apiVersion: v1
 kind: Service
 metadata:
